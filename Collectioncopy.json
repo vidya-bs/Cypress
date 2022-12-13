@@ -1,0 +1,55 @@
+{
+    "id": "637738f8880f666237f634cc",
+    "name": "collectionName",
+    "description": "New Collection",
+    "cts": 1668757752005,
+    "mts": 1669098953081,
+    "requests": [],
+    "folders": [
+        {
+            "id": "63773fa50d8e872499327e92",
+            "name": "folderName",
+            "description": "dummy",
+            "parentCollectionId": "637738f8880f666237f634cc",
+            "cts": 1668759461506,
+            "mts": 1669098953079,
+            "requests": [
+                {
+                    "id": "63773fad880f666237f634e0",
+                    "name": "requestname",
+                    "description": "dummy",
+                    "parentFolderId": "63773fa50d8e872499327e92",
+                    "tag": "folderName",
+                    "mts": 1669098953077,
+                    "cts": 1668759469427,
+                    "verb": "GET",
+                    "requestUrl": "s",
+                    "authType": "NO AUTH",
+                    "authFieldName": "",
+                    "authFieldIn": "",
+                    "body": {
+                        "type": null,
+                        "data": null
+                    },
+                    "bodyType": "FORM_DATA",
+                    "headers": [
+                        {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data",
+                            "disabled": false
+                        }
+                    ],
+                    "formData": [
+                        {
+                            "name": "s",
+                            "description": "",
+                            "type": "text",
+                            "value": "s",
+                            "disabled": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

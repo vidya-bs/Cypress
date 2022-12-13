@@ -1,0 +1,10 @@
+scp -i /Users/abhinavraman/Downloads/Abhinav.pem -r /Users/abhinavraman/CypressAutomation.zip ubuntu@3.108.252.242:/tmp/
+
+scp -i /Users/abhinavraman/Downloads/Abhinav.pem ubuntu@3.108.252.242:/tmp/CypressAutomation/cypress/videos/astrum_workflow.cy.js.mp4  /Users/abhinavraman 
+
+
+
+docker run -it -v $PWD:/e2e -w /e2e cypress/included:12.0.2 --spec newAstrum workflow.cy.js --browser chrome
+
+docker run -it -v $PWD:/e2e -w /e2e cypress/included:12.0.2 --spec cypress/e2e/integration/astrum/newAstrum workflow.cy.js --browser chrome
+

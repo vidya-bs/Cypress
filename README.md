@@ -25,7 +25,7 @@ RUNNING TESTS USING CLI
 
 //This command will run all the tests headlessly in the chrome browser.
 
-    npx cypress run --spec "cypress/integration/examples/actions.spec.js" --browser chrome
+    npx cypress run --spec {PATH TO FILE} --browser chrome
 
 //This command will run a specific test headlessly in the chrome browser.
 

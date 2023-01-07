@@ -24,8 +24,8 @@ cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div').click({delay:20
 cy.wait(3000);
 cy.getLocalStorage('x-token-astrum').then((c) => {
     console.log("hello:", c)
-    cookieObj.cookie = c.value
-    // cy.setLocalStorage('x-token-astrum')
+    cookieObj.cookie = c
+
     cy.getLocalStorage('x-token-astrum')
 
 })
@@ -38,17 +38,21 @@ cy.getLocalStorage().then(cookies => {
 
 it('Environment', function() {
 
-    console.log(cookieObj.cookie)
-
     cy.setLocalStorage("x-token-astrum", cookieObj.cookie)
     
 // Environments
-cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]/div/div/div[5]/div').click({force:true});
+cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div/div/div/div[5]/div').click({force:true});
+cy.wait(500);
+
 // cy.get(':nth-child(4) > a > img').click();
 
 // New button
 cy.get('.w-25 > .d-flex > :nth-child(1)').click();
-cy.get('.new-modal-item').click();
+cy.wait(1000);
+
+cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div[1]/div[2]/div[2]/div').click({force:true});
+// cy.get('.new-modal-item').click();
+cy.wait(500);
 
 
 // Env variable
@@ -65,10 +69,10 @@ cy.wait(1000);
 // Rename env
 
 // 3 button
-cy.xpath('//*[@id="dropdown-basic"]').click({force: true});
+cy.xpath('//*[@id="dropdown-basic"]').click({ force: true,multiple: true });
 
 // Rename button
-cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div[1]/div[3]/div/div/div/div/div/a[1]').click({force: true});
+cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div[1]/div[3]/div/div/div/div/div/a[1]').click({ force: true,multiple: true });
 
 // Rename 
 cy.get('.table-cell-input').click().clear();
@@ -79,97 +83,127 @@ cy.wait(1000);
 
 
 
-it('Rename', function() {
-cy.setLocalStorage("x-token-astrum", cookieObj.cookie)
-// API collections
-cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]').click({delay:2000});
-cy.wait(500);
+// it('Rename', function() {
+// cy.setLocalStorage("x-token-astrum", cookieObj.cookie)
+// // API collections
+// cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]').click({delay:2000});
+// cy.wait(500);
 
 
-// Collections
-cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]/div/div/div[4]/div').click({force:true});
-// cy.get(':nth-child(3) > a > img').click();
-cy.wait(1000);
-    // Rename 
+// // Collections
+// cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]/div/div/div[4]/div').click({force:true});
+// // cy.get(':nth-child(3) > a > img').click();
+// cy.wait(1000);
+//     // Rename 
 
-// // Rename collection
-cy.get('#639c10946bb3ad24bdc78712').click({ force: true}); 
-cy.wait(500);
-
-
-cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[1]/div[2]/div/div/a[3]').click({force: true});
-cy.wait(500);
+// // // Rename collection
+// cy.get('#639c10946bb3ad24bdc78712').click({ force: true}); 
+// cy.wait(500);
 
 
-cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div/div[1]/input').dblclick().clear();
-cy.wait(500);
+// cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[1]/div[2]/div/div/a[3]').click({force: true});
+// cy.wait(500);
 
 
-cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div/div[1]/input').type('collectionName').type('{enter}');
-cy.wait(500);
+// cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div/div[1]/input').dblclick().clear();
+// cy.wait(500);
 
 
-
-cy.get('.ps-2 > .w-100').click({force: true});
-cy.wait(500);
+// cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div/div[1]/input').type('collectionName').type('{enter}');
+// cy.wait(500);
 
 
 
-// Rename folder
-
-cy.xpath('//*[@id="dropdown-basic"]').click({  multiple: true ,force: true }); 
-cy.wait(500);
-
-cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[1]/div[2]/div/div/a[4]').click({force: true});
-cy.wait(500);
-
-
-cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[1]/div[1]/div/input').clear();
-cy.wait(500);
-
-
-cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[1]/div[1]/div/input').type('folderName').type('{enter}');
-cy.wait(500);
+// cy.get('.ps-2 > .w-100').click({force: true});
+// cy.wait(500);
 
 
 
-cy.get('.flex-column > [style="width: calc(100% - 0.5rem); min-height: 33px;"]').click({force: true});
-cy.wait(500);
+// // Rename folder
+
+// cy.xpath('//*[@id="dropdown-basic"]').click({  multiple: true ,force: true }); 
+// cy.wait(500);
+
+// cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[1]/div[2]/div/div/a[4]').click({force: true});
+// cy.wait(500);
+
+
+// cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[1]/div[1]/div/input').clear();
+// cy.wait(500);
+
+
+// cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[1]/div[1]/div/input').type('folderName').type('{enter}');
+// cy.wait(500);
+
+
+
+// cy.get('.flex-column > [style="width: calc(100% - 0.5rem); min-height: 33px;"]').click({force: true});
+// cy.wait(500);
 
 
 
 
 
-// Rename request
-cy.xpath('//*[@id="dropdown-basic"]').click({ force: true,multiple: true }); 
-cy.wait(500);
+// // Rename request
+// cy.xpath('//*[@id="dropdown-basic"]').click({ force: true,multiple: true }); 
+// cy.wait(500);
 
 
-cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[2]/div/p/div/div[2]/div/div/a[1]').click({force: true})
-cy.wait(500);
+// cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[2]/div/p/div/div[2]/div/div/a[1]').click({force: true})
+// cy.wait(500);
 
 
-cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[2]/div/p/div/div[1]/span[2]/input').clear();
-cy.wait(500);
+// cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[2]/div/p/div/div[1]/span[2]/input').clear();
+// cy.wait(500);
 
 
-cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[2]/div/p/div/div[1]/span[2]/input').type('requestname').type('{enter}');
-cy.wait(500);
+// cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[2]/div/p/div/div[1]/span[2]/input').type('requestname').type('{enter}');
+// cy.wait(500);
 
 
-cy.get('.ms-3 > .justify-content-between').click();
-})
+// cy.get('.ms-3 > .justify-content-between').click();
+// })
 
 
 
 
 it('Select environment', function() {
     cy.setLocalStorage("x-token-astrum", cookieObj.cookie)
-    cy.get('#dropdown-basic > .w-100 > span').click();
-cy.wait(500);
 
-cy.get('.environment-dropdown > .overflow-auto > :nth-child(1) > div').click();
-cy.wait(500);
+    // API collections
+    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div').click({delay:2000});
+    cy.wait(500);
+    
+    // Collections
+    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div/div/div/div[4]/div').click({force:true});
+// // cy.get(':nth-child(3) > a > img').click();
+    cy.wait(1000);
+    
+    // Collections
+    // cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]/div/div/div[4]/div').click({force:true});
+    // // cy.get(':nth-child(3) > a > img').click();
+    // cy.wait(1000);
+
+    cy.get('.ps-2 > .w-100').click({force: true});
+    cy.get('.flex-column > [style="width: calc(100% - 0.5rem); min-height: 33px;"]').click({force: true});
+    // cy.get('.ms-1').click({force: true});
+
+    cy.xpath('//*[@id="dropdown-basic"]').click({  multiple: true ,force: true }); 
+    cy.wait(500);
+
+    cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[1]/div[2]/div/div/a[1]').click({force:true});
+    cy.wait(500);
+
+    cy.get('.ms-1').click({ force: true,multiple: true });
+    cy.wait(500);
+
+
+
+    cy.get('#dropdown-basic > .w-100 > span').click();
+    cy.wait(500);
+
+    cy.get('.environment-dropdown > .overflow-auto > :nth-child(1) > div').click();
+    cy.wait(500);
 
 })
 
@@ -501,7 +535,9 @@ cy.wait(5000);
 it('Download swagger',function() {
     cy.setLocalStorage("x-token-astrum", cookieObj.cookie)
 
-    cy.get('.swagger-btn-overlay.me-1').click();
+    cy.get(':nth-child(2) > .swagger-btn-overlay').click({force: true});
+    cy.wait(1000);
+
     // cy.get('.swagger-btn-overlay.me-1 > img')
 })
 
@@ -509,7 +545,7 @@ it('Download swagger',function() {
 it('push to scm',function() {
     cy.setLocalStorage("x-token-astrum", cookieObj.cookie)
 
-    cy.get('.position-relative > .swagger-btn-overlay').click();
+    cy.get(':nth-child(1) > .swagger-btn-overlay').click();
     cy.wait(1000);
     // Repo name
     cy.get('.p-2 > :nth-child(2) > :nth-child(1) > div.w-100 > .w-100').click();
@@ -577,14 +613,17 @@ it('Tree view', function() {
 it('Download collection', function() {
     cy.setLocalStorage("x-token-astrum", cookieObj.cookie)
 
-    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]').click({delay:2000});
-    cy.wait(2000);
+    cy.get('.d-flex > .cursor-pointer').click({force:true});
+    cy.wait(1000);
 
-    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]/div/div/div[4]/div').click({force:true});
-    cy.wait(2000);
+    // cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]').click({delay:2000});
+    // cy.wait(2000);
 
-    cy.get('#637738f8880f666237f634cc').click({ force: true }); 
-    cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div[2]/div/div[1]/div/div/div/div[3]/div/div[1]/div[2]/div/div/a[4]').click({force: true});
+    // cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]/div/div/div[4]/div').click({force:true});
+    // cy.wait(2000);
+
+    cy.get('#639c10946bb3ad24bdc78712').click({ force: true }); 
+    cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div/div[2]/div/div[1]/div/div/div/div[3]/div/div/div[2]/div/div/a[4]').click({force: true});
     cy.wait(2000);
 })
 
@@ -596,8 +635,11 @@ it('Dashboard', function() {
 // Dashboard
 // cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]/div/div/div[3]/div').click();
 
-cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]').click({delay:2000});
-cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]/div/div/div[3]/div').click({force: true});
+cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div').click({delay:2000});
+cy.wait(1000);
+
+cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div/div/div/div[3]/div').click({force: true});
+cy.wait(1000);
 
 // cy.get('[style="top: 10%;"] > :nth-child(2) > a > img').click();
 // cy.get(':nth-child(1) > .txn-list > .justify-content-start > .truncate-xl').should('be.be.visible');
@@ -613,18 +655,22 @@ it('Txn history', function() {
     cy.setLocalStorage("x-token-astrum", cookieObj.cookie)
 
 // txn history
-cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]/div/div/div[6]/div').click({force: true});
+cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div/div/div/div[6]/div').click({force: true});
 // cy.get(':nth-child(6) > a > img').click();
 cy.get(':nth-child(1) > .txn-list > .justify-content-start > .text-post > .m-0').contains('POST');
+cy.wait(2000);
+
 // cy.get(':nth-child(1) > .txn-list > .justify-content-start > .truncate-xl').contains('https://postman-echo.com/post');
 
 
-cy.get(':nth-child(1) > .txn-list > .justify-content-start > .truncate-xl').click();
-cy.wait(5000);
-cy.get(':nth-child(1) > .txn-list > .d-flex > .truncate').click();
+// cy.get(':nth-child(1) > .txn-list > .justify-content-start > .truncate-xl').click({force:true});
+// cy.wait(500);
+// cy.get(':nth-child(1) > .txn-list > .d-flex > .truncate').click();
 
 // Custom
-cy.get('.txnHisotry-tabs-container > .cursor').click();
+cy.get('.txnHisotry-tabs-container > .cursor').click({force: true});
+cy.wait(2000);
+
 cy.get('.rdrDayToday > .rdrDayNumber > span').click();
 cy.wait(2000);
 cy.get('.activeTab').click();
@@ -638,13 +684,13 @@ it('Audit logs', function() {
 
     // Audit logs
 // cy.get(':nth-child(7) > a > img').click();
-cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[15]/div[2]').click();
+cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[15]/div').click();
 cy.wait(200);
 
-cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[15]/div[2]/div/div/div[5]/div').click({force: true});
+cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[15]/div/div/div/div[5]/div').click({force: true});
 cy.wait(200);
 
-cy.get('.txnHisotry-tabs-container > .justify-content-start > :nth-child(2)').click();
+cy.get('.txnHisotry-tabs-container > .justify-content-start > :nth-child(2)').click({force:true});
 cy.wait(200);
 
 cy.get(':nth-child(1) > .audit-list > .w-100 > .truncate-xl > .status-code').contains('GET');
@@ -663,10 +709,10 @@ it('Delete environment', function() {
     cy.setLocalStorage("x-token-astrum", cookieObj.cookie)
 
     // Delete environment
-    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]').click({delay:2000});
+    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div').click({delay:2000});
     cy.wait(2000);
 
-    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]/div/div/div[5]/div').click({force:true});
+    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div/div/div/div[5]/div').click({force:true});
     cy.wait(2000);
 
     // 3 button
@@ -713,10 +759,10 @@ it('Reset', function() {
     cy.setLocalStorage("x-token-astrum", cookieObj.cookie)
 
     // Collections
-    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]').click({delay:2000});
+    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div').click({delay:2000});
     cy.wait(2000);
 
-    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div[2]/div/div/div[4]/div').click({force:true});
+    cy.xpath('//*[@id="root"]/div/div[2]/div[2]/div[1]/div[14]/div/div/div/div[4]/div').click({force:true});
     cy.wait(2000);
 
 
@@ -725,26 +771,32 @@ cy.get('.ps-2 > .w-100').click({force: true});
 cy.get('.flex-column > [style="width: calc(100% - 0.5rem); min-height: 33px;"]').click({force: true});
 cy.get('.ms-1').click({force: true});
 
+// to delete request
+cy.xpath('//*[@id="dropdown-basic"]').click({ force: true,multiple: true }); 
+cy.wait(500);
+
+cy.xpath('//*[@id="root"]/div/div[2]/div[1]/div/div[1]/div/div[2]/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div[2]/div/p/div/div[2]/div/div/a[3]').click({force: true});
+
 // // to clear url
-cy.get('.d-flex > .px-2').click().clear();
-cy.get('.d-flex > .px-2').click();
-cy.get('.d-flex > .px-2').type('sample save');
-cy.wait(1000);
+// cy.get('.d-flex > .px-2').click().clear();
+// cy.get('.d-flex > .px-2').click();
+// cy.get('.d-flex > .px-2').type('sample save');
+// cy.wait(1000);
 
-// // To change scheme
-cy.get('.request-input > #dropdown-basic > .d-flex').click();
-cy.wait(1000);
-cy.get('[value="GET"]').click({multiple: true});
-cy.wait(1000);
+// // // To change scheme
+// cy.get('.request-input > #dropdown-basic > .d-flex').click();
+// cy.wait(1000);
+// cy.get('[value="GET"]').click({multiple: true});
+// cy.wait(1000);
 
 
-// // Remove auth
-cy.get('.config-container > .request-config-tabs-container > :nth-child(2)').click();
-cy.wait(1000);
-cy.get(':nth-child(1) > .d-flex > .mt-1 > input').check();
-cy.wait(1000);
-cy.get('.request-send-btn').click();
-cy.wait(1000);
+// // // Remove auth
+// cy.get('.config-container > .request-config-tabs-container > :nth-child(2)').click();
+// cy.wait(1000);
+// cy.get(':nth-child(1) > .d-flex > .mt-1 > input').check();
+// cy.wait(1000);
+// cy.get('.request-send-btn').click();
+// cy.wait(1000);
 })
 
 

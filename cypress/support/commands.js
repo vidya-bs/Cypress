@@ -25,19 +25,20 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import 'cypress-file-upload';
+import "cypress-real-events";
 
-// let LOCAL_STORAGE_MEMORY={};
+let LOCAL_STORAGE_MEMORY={};
 
 // Save session data at the end of an it()
-// Cypress.Commands.add("saveLocalStorage", () =>{
-//     Object.keys(localStorage).forEach((key) => {
-//         LOCAL_STORAGE_MEMORY[key]=localStorage[key];
-//     });
-// })
+Cypress.Commands.add("saveLocalStorage", () =>{
+    Object.keys(localStorage).forEach((key) => {
+        LOCAL_STORAGE_MEMORY[key]=localStorage[key];
+    });
+})
 
-// // Restore session data at the beginiing of an it()
-// Cypress.Commands.add("restoreLocalStorage", () =>{
-//     Object.keys(LOCAL_STORAGE_MEMORY).forEach((key) => {
-//         localStorage.setItem(key, LOCAL_STORAGE_MEMORY[key]); 
-//     });
-// })
+// Restore session data at the beginiing of an it()
+Cypress.Commands.add("restoreLocalStorage", () =>{
+    Object.keys(LOCAL_STORAGE_MEMORY).forEach((key) => {
+        localStorage.setItem(key, LOCAL_STORAGE_MEMORY[key]); 
+    });
+})

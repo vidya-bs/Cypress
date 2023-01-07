@@ -1,0 +1,83 @@
+{
+    "id": "639c10946bb3ad24bdc78712",
+    "name": "New Collection",
+    "description": "New Collection",
+    "cts": 1671172244778,
+    "mts": 1672841056615,
+    "requests": [],
+    "folders": [
+        {
+            "id": "639c10a06bb3ad24bdc78717",
+            "name": "New Folder",
+            "description": "dummy",
+            "parentCollectionId": "639c10946bb3ad24bdc78712",
+            "cts": 1671172256273,
+            "mts": 1672841056611,
+            "requests": [
+                {
+                    "id": "63b587409b9e744a4bff101e",
+                    "name": "New Request",
+                    "description": "dummy",
+                    "parentFolderId": "639c10a06bb3ad24bdc78717",
+                    "tag": "New Folder",
+                    "mts": 1672841056607,
+                    "cts": 1672841024406,
+                    "verb": "POST",
+                    "requestUrl": "{{scheme}}://postman-echo.com/post?text to type=text to type",
+                    "authType": "API KEY",
+                    "authFieldName": "keyss",
+                    "authFieldIn": "queryParams",
+                    "body": {
+                        "type": null,
+                        "data": null
+                    },
+                    "bodyType": "FORM_DATA",
+                    "headers": [
+                        {
+                            "key": "testkey",
+                            "value": "testvalue",
+                            "disabled": false,
+                            "id": "570dbb7f-a97c-44ef-950a-56c66fb6ab88",
+                            "description": ""
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data",
+                            "disabled": false
+                        },
+                        {
+                            "key": "Cookie",
+                            "value": "Cookie=value",
+                            "disabled": false,
+                            "description": ""
+                        }
+                    ],
+                    "queryParams": [
+                        {
+                            "disabled": false,
+                            "type": "auth",
+                            "key": "keyss",
+                            "value": "values"
+                        },
+                        {
+                            "id": "6e0f20ae-e995-4561-a14b-79a7aafc713f",
+                            "disabled": false,
+                            "key": "text to type",
+                            "description": "",
+                            "value": "text to type"
+                        }
+                    ],
+                    "formData": [
+                        {
+                            "name": "text",
+                            "description": "",
+                            "type": "file",
+                            "value": "image.png",
+                            "disabled": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

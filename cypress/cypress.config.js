@@ -2,19 +2,19 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   projectId: 'xqcsnk',
-  reporter: 'cypress-mochawesome-reporter',
-  reporterOptions: {
-    "reportDir": "cypress/reports/mocha",
-    "reportFilename": "cypressReport",
-    charts: true,
-    json: true,
-    "reportPageTitle": "custom-title",
-    embeddedScreenshots: true,
-    inlineAssets: true,
-    saveAllAttempts: false,
-    overwrite: true 
-  },
-  "reporter": "../node_modules/mochawesome/src/mochawesome.js",
+//  reporter: 'cypress-mochawesome-reporter',
+//  reporterOptions: {
+//    "reportDir": "cypress/reports/mocha",
+//    "reportFilename": "cypressReport",
+//    charts: true,
+//    json: true,
+//    "reportPageTitle": "custom-title",
+//    embeddedScreenshots: true,
+//    inlineAssets: true,
+//    saveAllAttempts: false,
+//    overwrite: true
+//  },
+  "reporter": "cypress-mochawesome-reporter",
   "reporterOptions": {
       "overwrite": false,
       "html": false,

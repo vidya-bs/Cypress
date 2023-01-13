@@ -7,7 +7,12 @@
     "nonGlobalStepDefinitions": true
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "test1": "cypress run --spec /Users/abhinavraman/CypressAutomation/cypress/e2e/integration/Registration/astrumregistration/loginToAstrum.cy.js --browser chrome > cypress-combined-report.pdf",
+    "delete:reportFolder": "rm -rf mochawesome-report/",
+    "test:cli": "npm run delete:reportFolder && npx cypress run -- spec /Users/abhinavraman/CypressAutomation/cypress/e2e/integration/Registration/astrumregistration/loginToAstrum.cy.js",
+    "merge:reports": "mochawesome-merge mocha/*.json > cypress-combined-report.json",
+    "create:html:report": "npm run merge:reports && marge --reportDir TestReport cypress-combined-report.json"
   },
   "author": "abhinav",
   "license": "ISC",
@@ -18,10 +23,15 @@
     "cypress-file-upload": "^5.0.8",
     "cypress-localstorage-commands": "^2.2.2",
     "cypress-xpath": "^2.0.1",
-    "mocha": "^10.1.0"
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.2",
+    "mochawesome-report-generator": "^6.2.0"
   },
   "dependencies": {
+    "cypress-mochawesome-reporter": "^3.2.3",
     "cypress-plugin-api": "^2.3.3",
     "cypress-real-events": "^1.7.4"
   }
 }
+

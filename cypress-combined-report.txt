@@ -1,0 +1,69 @@
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        11.0.1                                                                         │
+  │ Browser:        Chrome 108 (headless)                                                          │
+  │ Node Version:   v19.3.0 (/opt/homebrew/Cellar/node/19.3.0/bin/node)                            │
+  │ Specs:          1 found (loginToAstrum.cy.js)                                                  │
+  │ Searched:       cypress/e2e/integration/Registration/astrumregistration/loginToAstrum.cy.js    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Remove .jsons folder /Users/abhinavraman/CypressAutomation/cypress/reports/html/.jsons
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  loginToAstrum.cy.js                                                             (1 of 1)
+
+
+  login to astrum
+    ✓ enter workspace (5364ms)
+
+
+  1 passing (7s)
+
+[mochawesome] Report JSON saved to /Users/abhinavraman/CypressAutomation/cypress/reports/html/.jsons/mochawesome.json
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     7 seconds                                                                        │
+  │ Spec Ran:     loginToAstrum.cy.js                                                              │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/abhinavraman/CypressAutomation/cypress/videos/loginT    (0 seconds)
+                          oAstrum.cy.js.mp4                                                         
+
+Start generate report process
+Read and merge jsons from "/Users/abhinavraman/CypressAutomation/cypress/reports/html/.jsons"
+Copy screenshots folder from "/Users/abhinavraman/CypressAutomation/cypress/screenshots" to "/Users/abhinavraman/CypressAutomation/cypress/reports/html/screenshots"
+Enhance report
+Create HTML report
+HTML report successfully created!
+/Users/abhinavraman/CypressAutomation/cypress/reports/html/index_004.html
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  loginToAstrum.cy.js                      00:07        1        1        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        00:07        1        1        -        -        -  
+

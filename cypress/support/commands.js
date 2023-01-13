@@ -1,43 +1,33 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
+// ***********************************************************
+// This example support/e2e.js is processed and
+// loaded automatically before your test files.
 //
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
+// This is a great place to put global configuration and
+// behavior that modifies Cypress.
 //
+// You can change the location of this file or turn off
+// automatically serving support files with the
+// 'supportFile' configuration option.
 //
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+// You can read more here:
+// https://on.cypress.io/configuration
+// ***********************************************************
 
-import 'cypress-file-upload';
+// Import commands.js using ES2015 syntax:
+import './commands'
+import 'cypress-plugin-api'
+import "cypress-localstorage-commands";
 
-// let LOCAL_STORAGE_MEMORY={};
+// Alternatively you can use CommonJS syntax:
+// require('./commands')
 
-// Save session data at the end of an it()
-// Cypress.Commands.add("saveLocalStorage", () =>{
-//     Object.keys(localStorage).forEach((key) => {
-//         LOCAL_STORAGE_MEMORY[key]=localStorage[key];
-//     });
-// })
+require('cypress-xpath')
 
-// // Restore session data at the beginiing of an it()
-// Cypress.Commands.add("restoreLocalStorage", () =>{
-//     Object.keys(LOCAL_STORAGE_MEMORY).forEach((key) => {
-//         localStorage.setItem(key, LOCAL_STORAGE_MEMORY[key]); 
-//     });
-// })
+module.exports = (on, config) => {
+  require('cypress-mochawesome-reporter/plugin')(on);
+};
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from failing the test
+    return false
+  })

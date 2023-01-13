@@ -15,7 +15,7 @@ module.exports = defineConfig({
     // testIsolation: "off" ,
     // cacheAcrossSpecs: true,
     setupNodeEvents(on, config) {
-      require("cypress-localstorage-commands/plugin")(on, config);
+      require("cypress-localstorage-commands/plugin")(on, config),
       require('cypress-mochawesome-reporter/plugin')(on);
       // implement node event listeners here
     },

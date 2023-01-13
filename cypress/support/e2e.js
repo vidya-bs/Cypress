@@ -23,6 +23,10 @@ import "cypress-localstorage-commands";
 
 require('cypress-xpath')
 
+module.exports = (on, config) => {
+  require('cypress-mochawesome-reporter/plugin')(on);
+};
+
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from failing the test
     return false
